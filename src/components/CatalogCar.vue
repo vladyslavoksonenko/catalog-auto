@@ -7,6 +7,17 @@
       </div>
     </div>
     <div class="row">
+      <div class="dropdown col-6">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          Сортировать
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li>
+            <a @click="sortSale('down')" class="dropdown-item" href="#">По цене (по убыванию)</a>
+          </li>
+          <li><a @click="sortSale('up')" class="dropdown-item" href="#">По цене (по возростанию)</a></li>
+        </ul>
+      </div>
       <nav class="nav-pagination col-6" aria-label="Page navigation example">
         <ul class="pagination">
           <li :class="pageNumber === 0 ? 'disabled' : ''" class="page-item">
@@ -37,17 +48,6 @@
           </li>
         </ul>
     </nav>
-      <div class="dropdown col-6">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-          Сортировать
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-          <li>
-            <a @click="sortSale('down')" class="dropdown-item" href="#">По цене (по убыванию)</a>
-          </li>
-          <li><a @click="sortSale('up')" class="dropdown-item" href="#">По цене (по возростанию)</a></li>
-        </ul>
-      </div>
     </div>
   </div>
 </template>
@@ -158,7 +158,8 @@ export default {
 
 <style scoped>
   .nav-pagination {
-    margin-top: 1rem;
+    margin-top: 2rem;
+    text-align: center;
   }
   .page-link {
     cursor: pointer;

@@ -1,27 +1,32 @@
 
 
-
 const url = "http://192.168.1.155/posts";
 
 
 
 export const addPost = async (state) => {
-  var formdata = new FormData();
+  const formdata = new FormData();
   formdata.append("name", state.nameCar);
   formdata.append("description", state.description);
   formdata.append("image", state.file);
   formdata.append("price", state.price);
 
-  var requestOptions = {
+  const requestOptions = {
     method: 'POST',
     body: formdata,
     redirect: 'follow'
   };
 
-  fetch(url, requestOptions)
-    .then(response => response.text())
-    .then(result => alert(result))
-    .catch(error => alert(error))
+  return fetch(url, requestOptions)
+    .then(response => response.json())
+    .then(result => {
+      return result;
+    })
+    .catch(error => {
+     return error;
+    })
+
+
 }
 
 export const getPosts = async () => {
